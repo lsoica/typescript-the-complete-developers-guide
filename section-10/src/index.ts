@@ -1,23 +1,18 @@
-class Sorter {
-    constructor(public collection: number[]) {}
+import { NumbersCollection } from './NumbersCollection';
+import { CharactersCollection } from './CharactersCollection';
+import { LinkedList } from './LinkedList';
 
-    sort(): void {
-        for (let i = 0; i < this.collection.length - 1; i++) {
-            for (let j = 1; j < this.collection.length - i; j++) {
-                if (this.collection[j] < this.collection[j - 1]) {
-                    this.swap(j, j - 1);
-                }
-            }
-        }
-    }
+let numbersCollection = new NumbersCollection([10, 3, -5, 0]);
+numbersCollection.sort();
+console.log(numbersCollection.data);
 
-    swap(i: number, j: number) {
-        let tmp = this.collection[i];
-        this.collection[i] = this.collection[j];
-        this.collection[j] = tmp;
-    }
-}
+let charactersCollection = new CharactersCollection('a2sndjsdalz');
+charactersCollection.sort();
+console.log(charactersCollection.data);
 
-let sorter = new Sorter([10, 3, -5, 0]);
-sorter.sort();
-console.log(sorter.collection);
+const linkedList = new LinkedList();
+linkedList.add(12);
+linkedList.add(2);
+linkedList.add(3);
+linkedList.sort();
+linkedList.print();
