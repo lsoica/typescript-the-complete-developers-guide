@@ -1,12 +1,10 @@
 import { CsvFileReader } from './CsvFileReader';
-let csvFileReader = new CsvFileReader('football.csv');
+import { MatchReader } from './MatchReader';
+import { Summary } from './Summary';
+import { WinsAnalysis } from './WinsAnalysis';
+import { ConsoleReport } from './reportTargets/ConsoleReport';
+import { HtmlReport } from './reportTargets/HtmlReport';
+let csvFileReader = new MatchReader('football.csv');
 csvFileReader.read();
-let manUnitedWins = 0;
-
-for (let match of csvFileReader.data) {
-    if ((match[1] === 'Man United' && match[5] === 'H') || (match[2] === 'Man United' && match[5] === 'A')) {
-        manUnitedWins++;
-    }
-}
-
-console.log(manUnitedWins);
+const summary = new Summary(new WinsAnalysis('Man United'), new HtmlReport());
+summary.buildAndPrintReport(csvFileReader.data);
