@@ -1,0 +1,19 @@
+{
+    "name": "section-13",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start:db": "json-server -w db.json",
+        "start:parcel": "parcel index.html"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "typescript": "^3.5.2"
+    },
+    "dependencies": {
+        "axios": "^0.19.0"
+    }
+}
