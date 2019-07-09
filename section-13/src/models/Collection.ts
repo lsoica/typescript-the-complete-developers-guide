@@ -16,11 +16,10 @@ export class Collection<T, K> {
 
     fetch() {
         axios.get(`${this.rootUrl}`).then(response => {
-            response.data.array.forEach((element: K) => {
+            response.data.forEach((element: K) => {
                 this.models.push(this.deserialize(element));
             });
+            this.trigger('change');
         });
-
-        this.trigger('change');
     }
 }

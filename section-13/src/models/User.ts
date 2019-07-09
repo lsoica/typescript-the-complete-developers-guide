@@ -20,7 +20,7 @@ export class User extends Model<UserProps> {
 
     static buildUserCollection() {
         return new Collection(rootUrl, (props: UserProps) => {
-            new User(props);
+            return new User(props);
         });
     }
 
